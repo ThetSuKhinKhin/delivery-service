@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/adminLayout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main role="main">
+  <div th:replace="~{fragment/dashboardbody.html::dashboard}"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/script.js"></script>
+</main>
+</body>
+</html>

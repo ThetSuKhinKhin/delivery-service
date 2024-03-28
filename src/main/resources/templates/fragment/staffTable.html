@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table th:fragment="staffTable" class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>township</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Role</th>
+        <th>Delivered</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="staff: ${staffs}">
+        <td th:text="${staff != null ? staff.id : ''}"></td>
+        <td th:text="${staff != null ? staff.staffName : ''}"></td>
+        <td th:text="${staff != null ? staff.township : ''}"></td>
+        <td th:text="${staff != null ? staff.address : ''}"></td>
+        <td th:text="${staff != null ? staff.phoneNumber : ''}"></td>
+        <td th:text="${staff != null ? staff.role:''}"></td>
+        <td th:text="${staff != null ? staff.successfulDeliveries:''}"></td>
+
+        <td>
+            <a th:if="${staff != null}" th:href="@{'/staff/findById?id=' + ${staff.id}}" class="btn btn-info">View</a>
+            <a th:if="${staff != null}" th:href="@{'/staff/leaveDetails?id=' + ${staff.id}}" class="btn btn-info">Leaves</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

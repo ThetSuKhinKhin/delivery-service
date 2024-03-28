@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" th:fragment="staffLeaveInfo">
+    <div class="row">
+        <div class="col-4">
+            <img class="shadow" src="../../static/samplePhoto/SampleImage.png" alt="#"
+                 th:src="@{/samplePhoto/SampleImage.png}">
+        </div>
+        <div class="col-8">
+            <label class="text-dark">Staff Name: </label>
+            <a th:text="${staff.staffName}"></a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Leave Type</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="leave: ${leaveDetails}">
+                    <td th:text="${leave.startDate}"></td>
+                    <td th:text="${leave.endDate}"></td>
+                    <td th:text="${leave.leaveType}"></td>
+                    <td th:text="${leave.reason}"></td>
+                    <td th:text="${leave.status}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
